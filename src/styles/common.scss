@@ -60,3 +60,27 @@ body {
     height: 22px;
     max-width: max-content;
 }
+
+.border-color {
+    border-color: #363c4e;
+}
+
+
+.market-icon-content {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    background-color: #373f5c;
+    padding: 2px;
+    border-radius: 0px 5px 0px 5px;
+}
+
+.market-icon-postion-img {
+    height: 20px;
+}
+
+.mobile-menu-header {
+    margin-top: -42px;
+    position: absolute;
+    left: 15px;
+}

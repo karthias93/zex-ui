@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown, Space, Tabs, theme } from 'antd';
 import MainnetsContent from './mainnets-content/MainnetsContent';
+import TestnetsContent from './testnets-content/TestnetsContent';
 const { useToken } = theme;
 const items = [
     {
@@ -28,7 +29,7 @@ const NetsTypeDropdown = () => {
             }}
             placement="bottomRight"
             trigger={['click']}
-             style={{ backgroundColor: 'green' }}
+            style={{ backgroundColor: 'green' }}
             className="nets-dropdown"
             dropdownRender={(menu) => (
                 <div style={contentStyle}>
@@ -38,19 +39,19 @@ const NetsTypeDropdown = () => {
 
                     <div className='nets-dropdown-container'>
                         <Tabs
-                        className='nets-dropdown-tabs'
+                            className='nets-dropdown-tabs'
                             defaultActiveKey="1"
                             onChange={onChange}
                             items={[
                                 {
                                     label: `Mainnets`,
                                     key: '1',
-                                    children: <MainnetsContent/>,
+                                    children: <MainnetsContent />,
                                 },
                                 {
                                     label: `Testnets`,
                                     key: '2',
-                                    children: `Content of Tab Pane 2`,
+                                    children: <TestnetsContent />,
                                 },
                             ]}
                         />
@@ -59,7 +60,7 @@ const NetsTypeDropdown = () => {
             )}
         >
             <a className='tp text-sm font-bold mr-5' onClick={(e) => e.preventDefault()}>
-                <Space>
+                <Space className='whitespace-nowrap'>
                     BNB Chain
                     <svg xmlns="http://www.w3.org/2000/svg" className="mt-1" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
