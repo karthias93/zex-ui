@@ -35,6 +35,7 @@
 .ant-menu-item {
     font-weight: bold;
     color: #6678a9;
+    padding: 0px 12px !important;
 }
 
 .ant-menu-item-selected {
@@ -87,6 +88,17 @@
 
 .ant-dropdown {
     background-color: #0000;
+}
+
+.ant-dropdown-menu {
+    background: #192137 !important;
+    min-width: 160px;
+}
+
+.more-links-dropdown-items {
+    &:hover {
+        color: #fff;
+    }
 }
 
 .nets-dropdown-container {
@@ -218,7 +230,6 @@
     }
 }
 
-.nets-select {}
 
 .cus-input {
     font-size: 18px;
@@ -319,4 +330,76 @@
     }
 
 
+}
+
+
+
+// tooltips
+
+.ant-tooltip-inner {
+    border: 1px solid #05ebeb;
+    background-color: #0f1529 !important;
+    font-size: 12px;
+    padding: 12px 15px !important;
+}
+
+.ant-tooltip-arrow {
+    width: 15px !important;
+    height: 15px !important;
+    border: 2px solid #05ebeb;
+    transform: rotate(225deg) !important;
+    background: #05cdcd;
+    margin-bottom: -6px;
+    z-index: -1 !important;
+    margin-left: -8px;
+    border-radius: 2px !important;
+}
+
+
+// drawer-menu
+
+.menu-drawer {
+    background: #151c2f !important;
+    color: #6678a9 !important;
+
+    .ant-drawer-close {
+        position: absolute;
+        right: 0;
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+
+    .ant-drawer-header {
+        padding: 30px 25px;
+    }
+
+    .ant-drawer-body {
+        padding: 0;
+
+        .ant-menu {
+            background: #151c2f !important;
+            color: #6678a9 !important;
+
+            .ant-menu-item-selected {
+                background-color: #202742;
+                border-radius: 0;
+            }
+
+            .ant-menu-submenu-title {
+                padding-left: 12px !important;
+                font-weight: bold !important;
+            }
+        }
+
+    }
+
+
+}
+
+.ant-drawer-content-wrapper {
+    width: 300px !important;
 }

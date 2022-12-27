@@ -1,4 +1,4 @@
-import { Button, Card, Col, Divider, Input, InputNumber, Radio, Row, Select, Slider } from 'antd';
+import { Button, Card, Col, Divider, Input, InputNumber, Radio, Row, Select, Slider, Tooltip } from 'antd';
 import React, { useState } from 'react';
 
 function TradePageRightBar(props) {
@@ -38,18 +38,41 @@ function TradePageRightBar(props) {
         <div className='trade-page-right-bar'>
             <div className='trade-page-right-bar-header p-3'>
                 <div className='flex items-center justify-between'>
-                    <Button className='zex-btn-sec' size='large'>Isolated</Button>
-                    <Divider type="vertical" />
+
+
+                    {/* <Button className='zex-btn-sec' size='large'>Isolated</Button> */}
+
                     <Radio.Group className='cus-radio-group' size="large" onChange={onChange} value={value} defaultValue="1">
                         <Radio.Button value={1}>Buy / Long</Radio.Button>
                         <Radio.Button className='orange' value={2}>Sell / Short</Radio.Button>
                     </Radio.Group>
+                    <Divider type="vertical" />
+                    <Button size='large' className='tp border-0 zex-btn-sec'>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="14" cy="6" r="2"></circle>
+                            <line x1="4" y1="6" x2="12" y2="6"></line>
+                            <line x1="16" y1="6" x2="20" y2="6"></line>
+                            <circle cx="8" cy="12" r="2"></circle>
+                            <line x1="4" y1="12" x2="6" y2="12"></line>
+                            <line x1="10" y1="12" x2="20" y2="12"></line>
+                            <circle cx="17" cy="18" r="2"></circle>
+                            <line x1="4" y1="18" x2="15" y2="18"></line>
+                            <line x1="19" y1="18" x2="20" y2="18"></line>
+                        </svg>
+                    </Button>
                 </div>
             </div>
             <div className='trade-page-right-bar-body p-3'>
                 <Row gutter={10}>
                     <Col xs={12}>
                         <Card className='zex-cus-card'>
+                            <Tooltip title="This position will be opened on MUX.">
+                                <div className='market-icon-content'>
+                                    <img className='market-icon-postion-img' src='https://app.mux.network/img/MUX.fa28c1a8.svg' />
+                                </div>
+
+                            </Tooltip>
                             <div className='text-xs'>
                                 Market Price
                             </div>

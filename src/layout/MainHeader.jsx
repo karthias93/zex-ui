@@ -1,6 +1,8 @@
-import React from 'react';
-import { Menu, Button, Dropdown, Space } from 'antd';
+import React, { useState } from 'react';
+import { Menu, Button, Dropdown, Space, Drawer } from 'antd';
 import NetsTypeDropdown from '../components/main-header/nets-type-dropdown/NetsTypeDropdown';
+import MoreLinksDropdown from '../components/main-header/more-links-dropdown/MoreLinksDropdown';
+import MobilviewMenu from '../components/mobile-view-menu/MobilviewMenu';
 
 
 function MainHeader(props) {
@@ -12,10 +14,6 @@ function MainHeader(props) {
         {
             label: 'Liquidity',
             key: 'liquidity',
-        },
-        {
-            label: 'Stake',
-            key: 'stake',
         },
         {
             label: 'Stake',
@@ -38,11 +36,25 @@ function MainHeader(props) {
             key: 'referral',
         },
     ];
-
+    const [open, setOpen] = useState(false);
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(false);
+    };
     return (
         <>
             <div className='flex place-content-between'>
                 <div className='flex w-3/5'>
+                    <div className='text-white mr-4 self-center hidden m-view-dblock' onClick={showDrawer}>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-align-justified" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <line x1="4" y1="6" x2="20" y2="6"></line>
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="18" x2="16" y2="18"></line>
+                        </svg>
+                    </div>
                     <div
                         style={{
                             float: 'left',
@@ -50,7 +62,7 @@ function MainHeader(props) {
                         className='self-center mr-5 flex-none'>
                         <img src={require('../images/zex-logo.png')} className="logo" />
                     </div>
-                    <div className='grow '>
+                    <div className='grow m-view-dnone'>
                         <Menu
                             theme="dark"
                             mode="horizontal"
@@ -60,7 +72,7 @@ function MainHeader(props) {
                         />
                     </div>
                 </div>
-                <div className='flex self-center'>
+                <div className='flex self-center w-2/5 justify-end'>
 
                     <div>
                         <NetsTypeDropdown />
@@ -69,19 +81,16 @@ function MainHeader(props) {
                         <img src='https://polygon.mux.network/img/polygon.0c049c96.svg' className='mr-1'></img> Polygon Mumbai Testnet
                     </div> */}
                     <div className='self-center'>
-                        <Button type="primary" className='mr-5'>Connect Wallet</Button>
+                        <Button type="primary" className=''>Connect Wallet</Button>
                     </div>
-                    <div className='tp self-center text-sm mr-5'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokWidth="2" stroke="currentColor" fill="none" >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <circle cx="5" cy="12" r="1"></circle>
-                            <circle cx="12" cy="12" r="1"></circle>
-                            <circle cx="19" cy="12" r="1"></circle>
-                        </svg>
+                    <div className='tp self-center text-sm ml-5 m-view-dnone'>
+                        <MoreLinksDropdown />
                     </div>
                 </div>
             </div>
-
+            <Drawer size="default" className='menu-drawer' placement="left" onClose={onClose} open={open}>
+                <MobilviewMenu/>
+            </Drawer>
         </>
     );
 }

@@ -9,7 +9,6 @@ import './trade.scss';
 function Trade(props) {
     return (
         <div className='trade-page'>
-
             <Row >
                 <Col flex="1 1 0" className='trade-page-left '>
                     <div className='trade-page-header px-4'>
