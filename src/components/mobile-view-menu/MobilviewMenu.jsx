@@ -32,7 +32,7 @@ const MobilviewMenu = () => {
         console.log('click ', e);
     };
     return (
-        <>
+        <> 
             <div className='mobile-menu-header'>
                 <img src={require('../../images/zex-logo.png')} className="logo" />
             </div>
