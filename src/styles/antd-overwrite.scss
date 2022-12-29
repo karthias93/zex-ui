@@ -48,7 +48,7 @@
 }
 
 .ant-divider-vertical {
-    border-inline-start: 1px solid #6678a9;
+    border-inline-start: 1px solid #1e263f;
 }
 
 .ant-switch {
@@ -293,6 +293,7 @@
                 background-color: #040818 !important;
                 color: #6678a9 !important;
                 border-bottom: 1px solid #373f5c80 !important;
+                white-space: nowrap;
             }
         }
     }
@@ -422,4 +423,27 @@
             color: #fff;
         }
     }
+}
+
+
+// Select dropdown 
+.ant-select-dropdown{
+    background-color: #192038;
+}
+.ant-select-item{
+    color: #fff !important;
+}
+
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled){
+    background-color: #0000;
+    color: #6678a9 !important
+}
+
+.cus-select-sm .ant-select-selection-item {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cus-select-sm .ant-select-selector{
+padding: 0;
 }
