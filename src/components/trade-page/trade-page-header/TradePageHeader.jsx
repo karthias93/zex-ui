@@ -1,11 +1,14 @@
-import { Divider } from 'antd';
+import { Divider, Select } from 'antd';
 import React from 'react';
 
 function TradePageHeader(props) {
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
+    };
     return (
         <div>
-            <div className='flex items-center py-3'>
-                <div className='flex'>
+            <div className='flex items-center py-3 mflex-wrap justify-between'>
+                <div className='flex mw-50 mmb-4'>
                     <div className='self-center'>
                         <img className='mr-3 h-8' src='https://mux-world.github.io/assets/img/tokens/MATIC.svg' />
                     </div>
@@ -22,21 +25,49 @@ function TradePageHeader(props) {
                         </svg>
                     </div>
                 </div>
-                <Divider type="vertical" />
-                <div className='px-4'>
+                <Divider type="vertical" className='m-view-dnone' />
+                <div className='mw-50 mtext-right mmb-4'>
                     <span className='font-bold text-xl text-white mr-3'>0.80</span>
                     <span className='text-base text-red-600'>(- 0.33%)</span>
                 </div>
-                <Divider type="vertical" />
-                <div className='pl-3 pr-6 text-xs'>
-                    <div className='tp'>Long / Short</div>
+                <Divider type="vertical" className='m-view-dnone' />
+                <div className='text-xs mw-33 mmb-4 mp-0'>
+                    <div className='tp whitespace-pre-wrap'>Long / Short</div>
                     <div className='text-white'> $13 / $18</div>
 
                 </div>
                 <Divider type="vertical" />
-                <div className='pl-3 pr-6 text-xs'>
-                    <div className='tp'>Est. 8H Funding (L/S)</div>
+                <div className='text-xs mw-33 mmb-4 mtext-center mp-0'>
+                    <div className='tp whitespace-pre-wrap'>Est. 8H Funding (L/S)</div>
                     <div className='text-white'>0.030% / 0.011%</div>
+                </div>
+                <Divider type="vertical" />
+                <div className='text-xs mw-33 mmb-4 mtext-right mp-0'>
+                    <div className='tp whitespace-pre-wrap text-right'>Price Source</div>
+                    <div className='text-right'>
+                        <Select
+                            className='cus-select cus-select-sm text-white font-medium'
+                            style={{
+                                minWidth: "142px"
+                            }}
+                            defaultValue="lucy"
+                            onChange={handleChange}
+                            options={[
+                                {
+                                    value: 'market',
+                                    label: 'Market',
+                                },
+                                {
+                                    value: 'limit',
+                                    label: 'Limit',
+                                },
+                                {
+                                    value: 'stop-market',
+                                    label: 'Stop Market',
+                                },
+                            ]}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

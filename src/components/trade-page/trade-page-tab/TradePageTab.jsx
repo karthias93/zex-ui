@@ -23,7 +23,7 @@ function TradePageTab(props) {
 
     const operations = 
     <>
-        <div className='tp text-sm item-center flex'>
+        <div className='tp text-sm item-center flex m-view-dnone'>
             Label Positions
             <Switch className='ml-2' size="small" />
         </div>
