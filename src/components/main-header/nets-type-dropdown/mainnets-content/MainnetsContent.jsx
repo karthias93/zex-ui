@@ -11,25 +11,25 @@ function MainnetsContent(props) {
                     <ul className='tp p-0 font-bold text-sm mb-2'>
                         <li className='p-2'>
                             <div className='flex'>
-                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/arbitrum.dd7f8f4b.svg"} /></div>
+                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/arbitrum.dd7f8f4b.svg"} alt="arbitrum"/></div>
                                 <div>Arbitrum</div>
                             </div>
                         </li>
                         <li className='p-2'>
                             <div className='flex'>
-                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/BSC.a81b35b6.svg"} /></div>
+                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/BSC.a81b35b6.svg"} alt="bsc" /></div>
                                 <div>BNB Chain</div>
                             </div>
                         </li >
                         <li className='p-2'>
                             <div className='flex'>
-                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/AvalancheChain.40daf77d.svg"} /></div>
+                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/AvalancheChain.40daf77d.svg"} alt="AvalancheChain"/></div>
                                 <div>Avalanche</div>
                             </div>
                         </li>
                         <li className='p-2'>
                             <div className='flex'>
-                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/FantomChain.07b2eb9e.svg"} /></div>
+                                <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/FantomChain.07b2eb9e.svg"} alt="Fantom" /></div>
                                 <div>Fantom</div>
                             </div>
                         </li>

@@ -59,7 +59,7 @@ const NetsTypeDropdown = () => {
                 </div>
             )}
         >
-            <a className='tp text-sm font-bold mr-5' onClick={(e) => e.preventDefault()}>
+            <a className='tp text-sm font-bold mr-5' onClick={(e) => e.preventDefault()} href="#0">
                 <Space className='whitespace-nowrap'>
                     BNB Chain
                     <svg xmlns="http://www.w3.org/2000/svg" className="mt-1" width="18" height="18" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">

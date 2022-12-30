@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Space, Table, Tag } from 'antd';
+import { Button, Table } from 'antd';
 function PositionContent(props) {
     const columns = [
         {
             title: 'Market',
             dataIndex: 'market',
             key: 'market',
-            render: (text) => <a>{text}</a>,
+            render: (text) => <a href="#0">{text}</a>,
         },
         {
             title: 'Size',

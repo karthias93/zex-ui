@@ -7,7 +7,7 @@ function TestnetsContent(props) {
                 <li className='p-2'>
                     <div className='flex justify-between'>
                         <div className='flex'>
-                            <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/zkSync.465b977f.svg"} /></div>
+                            <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/zkSync.465b977f.svg"} alt="zk"/></div>
                             <div>zkSync alpha testnet</div>
                         </div>
                         <div className=''>
@@ -22,7 +22,7 @@ function TestnetsContent(props) {
                 <li className='p-2'>
                     <div className='flex justify-between'>
                         <div className='flex'>
-                            <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/polygon.30132dda.svg"} /></div>
+                            <div className='mr-2'><img className='h-5' src={"https://app.mux.network/img/polygon.30132dda.svg"} alt="polygon" /></div>
                             <div>Polygon Mumbai Testnet</div>
                         </div>
                         <div className=''>

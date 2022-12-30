@@ -5,16 +5,16 @@ function TradePageRightBar(props) {
     const handleChange = (value) => {
         console.log(`selected ${value}`);
     };
-    const options = [
-        {
-            label: 'Buy / Long',
-            value: 'buy-long',
-        },
-        {
-            label: 'Sell / Short',
-            value: 'sell-short',
-        },
-    ];
+    // const options = [
+    //     {
+    //         label: 'Buy / Long',
+    //         value: 'buy-long',
+    //     },
+    //     {
+    //         label: 'Sell / Short',
+    //         value: 'sell-short',
+    //     },
+    // ];
     const [value, setValue] = useState(1);
     const onChange = (e) => {
         console.log('radio checked', e.target.value);
@@ -69,7 +69,7 @@ function TradePageRightBar(props) {
                         <Card className='zex-cus-card'>
                             <Tooltip title="This position will be opened on MUX.">
                                 <div className='market-icon-content'>
-                                    <img className='market-icon-postion-img' src='https://app.mux.network/img/MUX.fa28c1a8.svg' />
+                                    <img className='market-icon-postion-img' src='https://app.mux.network/img/MUX.fa28c1a8.svg' alt="mux"/>
                                 </div>
 
                             </Tooltip>

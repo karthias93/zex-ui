@@ -1,7 +1,6 @@
 import {
 	makeApiRequest,
 	generateSymbol,
-	parseFullSymbol,
 } from './helpers.js';
 import {
 	subscribeOnStream,

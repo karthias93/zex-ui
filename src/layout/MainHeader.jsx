@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Button, Dropdown, Space, Drawer, Modal, Divider } from 'antd';
+import { Menu, Button, Drawer, Modal, Divider } from 'antd';
 import NetsTypeDropdown from '../components/main-header/nets-type-dropdown/NetsTypeDropdown';
 import MoreLinksDropdown from '../components/main-header/more-links-dropdown/MoreLinksDropdown';
 import MobilviewMenu from '../components/mobile-view-menu/MobilviewMenu';
@@ -71,7 +71,7 @@ function MainHeader(props) {
                             float: 'left',
                         }}
                         className='self-center mr-5 flex-none'>
-                        <img src={require('../images/zex-logo.png')} className="logo" />
+                        <img src={require('../images/zex-logo.png')} className="logo" alt='logo'/>
                     </div>
                     <div className='grow m-view-dnone'>
                         <Menu
@@ -123,7 +123,7 @@ function MainHeader(props) {
                             WalletConnect
                         </div>
                         <div>
-                            <img src={'https://app.mux.network/img/WalletConnect.4df4650b.svg'} />
+                            <img src={'https://app.mux.network/img/WalletConnect.4df4650b.svg'} alt='connect-wallet'/>
 
                         </div>
                     </div>
@@ -132,7 +132,7 @@ function MainHeader(props) {
                             WalletLink
                         </div>
                         <div>
-                            <img src={'https://app.mux.network/img/CoinbaseWallet.2c6a98b5.svg'} />
+                            <img src={'https://app.mux.network/img/CoinbaseWallet.2c6a98b5.svg'} alt='coinbase' />
 
                         </div>
                     </div>

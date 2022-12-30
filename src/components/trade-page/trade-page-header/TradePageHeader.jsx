@@ -10,7 +10,7 @@ function TradePageHeader(props) {
             <div className='flex items-center py-3 mflex-wrap justify-between'>
                 <div className='flex mw-50 mmb-4'>
                     <div className='self-center'>
-                        <img className='mr-3 h-8' src='https://mux-world.github.io/assets/img/tokens/MATIC.svg' />
+                        <img className='mr-3 h-8' src='https://mux-world.github.io/assets/img/tokens/MATIC.svg' alt='token'/>
                     </div>
                     <div className='mr-2'>
                         <div className='text-white font-semibold'>MATIC</div>

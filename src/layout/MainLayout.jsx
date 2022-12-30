@@ -1,13 +1,13 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Layout } from 'antd';
 import MainHeader from './MainHeader';
 import MainFooter from './MainFooter';
 import PageRoutes from '../routes/routes';
 const { Header, Content, Footer } = Layout;
 const MainLayout = () => {
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
+    // const {
+    //     token: { colorBgContainer },
+    // } = theme.useToken();
     return (
         <Layout>
             <Header
