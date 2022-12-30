@@ -62,7 +62,7 @@ const NetsTypeDropdown = () => {
             <a className='tp text-sm font-bold mr-5' onClick={(e) => e.preventDefault()}>
                 <Space className='whitespace-nowrap'>
                     BNB Chain
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mt-1" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="mt-1" width="18" height="18" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
