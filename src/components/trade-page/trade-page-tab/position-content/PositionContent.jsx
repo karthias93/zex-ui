@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Table } from 'antd';
-function PositionContent(props) {
+import { useAccount } from 'wagmi';
+function PositionContent({setIsModalOpen}) {
+    const { isConnected } = useAccount();
     const columns = [
         {
             title: 'Market',
@@ -80,10 +82,14 @@ function PositionContent(props) {
 
     return (
         <div className=''>
-            <Table className='zex-table' columns={columns} dataSource={data}
+            {isConnected && <Table className='zex-table' columns={columns} dataSource={data}
                 scroll={{
                     x: 200,
-                }} />
+                }} />}
+            {!isConnected && <div className='text-center items-center'>
+                <div className='text-[#6678A9] mb-2'>Please connect your wallet.</div>
+                <Button className='w-auto' size='large' type='primary' onClick={()=>setIsModalOpen(true)}>Connect Wallet</Button>
+            </div>}
         </div>
     );
 }

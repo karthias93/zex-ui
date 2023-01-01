@@ -1,7 +1,9 @@
 import { Button, Card, Col, Divider, Input, InputNumber, Radio, Row, Select, Slider, Tooltip } from 'antd';
 import React, { useState } from 'react';
+import { useAccount } from 'wagmi';
 
-function TradePageRightBar(props) {
+function TradePageRightBar({setIsModalOpen}) {
+    const { isConnected } = useAccount();
     const handleChange = (value) => {
         console.log(`selected ${value}`);
     };
@@ -192,7 +194,7 @@ function TradePageRightBar(props) {
                     </Col>
                 </Row>
                 <div className='my-5'>
-                    <Button className='w-full' size='large' type='primary'>Connect Wallet</Button>
+                    {!isConnected && <Button className='w-full' size='large' type='primary' onClick={()=>setIsModalOpen(true)}>Connect Wallet</Button>}
                 </div>
                 <div>
                     <div className='flex justify-between tp text-sm mb-2'>

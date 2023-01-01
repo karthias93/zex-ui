@@ -6,11 +6,11 @@ import TradePageRightBar from '../../components/trade-page/trade-page-right-bar/
 import TradePageTab from '../../components/trade-page/trade-page-tab/TradePageTab';
 import './trade.scss';
 
-function Trade(props) {
+function Trade({setIsModalOpen}) {
     return (
         <div className='trade-page'>
             <Row >
-                <Col flex="1 1 0" className='trade-page-left '>
+                <Col flex="3" className='trade-page-left '>
                     <div className='trade-page-header px-4'>
                         <TradePageHeader />
                     </div>
@@ -18,11 +18,11 @@ function Trade(props) {
                         <TradeChart/>
                     </div>
                     <div className='trade-tab-sec'>
-                        <TradePageTab />
+                        <TradePageTab setIsModalOpen={setIsModalOpen}/>
                     </div>
                 </Col>
-                <Col flex="0 1 345px" className='trade-page-right'>
-                    <TradePageRightBar/>
+                <Col flex="1" className='trade-page-right'>
+                    <TradePageRightBar setIsModalOpen={setIsModalOpen}/>
                 </Col>
             </Row>
         </div >

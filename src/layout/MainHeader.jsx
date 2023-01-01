@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Menu, Button, Drawer, Modal, Divider } from 'antd';
+import { Menu, Button, Drawer } from 'antd';
 import NetsTypeDropdown from '../components/main-header/nets-type-dropdown/NetsTypeDropdown';
 import MoreLinksDropdown from '../components/main-header/more-links-dropdown/MoreLinksDropdown';
 import MobilviewMenu from '../components/mobile-view-menu/MobilviewMenu';
+import { useAccount } from 'wagmi'
 
-
-function MainHeader(props) {
+function MainHeader({setIsModalOpen}) {
+    const { address, isConnected } = useAccount();
     const items = [
         {
             label: 'Trade',
@@ -44,16 +45,6 @@ function MainHeader(props) {
         setOpen(false);
     };
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
     return (    
         <>
             <div className='flex place-content-between'>
@@ -92,7 +83,8 @@ function MainHeader(props) {
                         <img src='https://polygon.mux.network/img/polygon.0c049c96.svg' className='mr-1'></img> Polygon Mumbai Testnet
                     </div> */}
                     <div className='self-center'>
-                        <Button type="primary" className='' onClick={showModal}>Connect Wallet</Button>
+                        {!isConnected && <Button type="primary" className='' onClick={()=>setIsModalOpen(true)}>Connect Wallet</Button>}
+                        {isConnected && <Button type="primary" className=''>{`${address.slice(0, 5)}...${address.slice(-4)}`}</Button>}
                     </div>
                     <div className='tp self-center text-sm ml-5 m-view-dnone'>
                         <MoreLinksDropdown />
@@ -102,48 +94,6 @@ function MainHeader(props) {
             <Drawer size="default" className='menu-drawer' placement="left" onClose={onClose} open={open}>
                 <MobilviewMenu />
             </Drawer>
-
-            <Modal
-                centered
-                open={isModalOpen}
-                onOk={handleOk} onCancel={handleCancel}
-                footer={null}
-            > 
-                <div className='modal-header mb-6 flex items-center text-white font-bold text-base'>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <line x1="5" y1="12" x2="11" y2="18"></line>
-                        <line x1="5" y1="12" x2="11" y2="6"></line>
-                    </svg> <Divider type="vertical" /> <span className='ml-2'>Connect Wallet</span>
-                </div>
-                <div className='modal-body'>
-                    <div className='flex justify-between p-3 connect-wallet-list mb-4'>
-                        <div className='text-white font-bold text-base'>
-                            WalletConnect
-                        </div>
-                        <div>
-                            <img src={'https://app.mux.network/img/WalletConnect.4df4650b.svg'} alt='connect-wallet'/>
-
-                        </div>
-                    </div>
-                    <div className='flex justify-between p-3 connect-wallet-list mb-4'>
-                        <div className='text-white font-bold text-base'>
-                            WalletLink
-                        </div>
-                        <div>
-                            <img src={'https://app.mux.network/img/CoinbaseWallet.2c6a98b5.svg'} alt='coinbase' />
-
-                        </div>
-                    </div>
-                </div>
-                <div className='modal-footer'>
-                    <div className='tp text-center'>
-                        Need Help? <u>Read Our Tutorials</u>
-                    </div>
-                </div>
-            </Modal>
-
         </>
     );
 }

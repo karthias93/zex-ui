@@ -1,13 +1,13 @@
 import { Switch, Tabs } from 'antd';
 import React from 'react';
 import PositionContent from './position-content/PositionContent';
-function TradePageTab(props) {
+function TradePageTab({setIsModalOpen}) {
 
     const items = [
         {
             label: `Positions`,
             key: '1',
-            children: <PositionContent/>,
+            children: <PositionContent setIsModalOpen={setIsModalOpen}/>,
         },
         {
             label: `Open Orders`,
