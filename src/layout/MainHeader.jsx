@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Button, Drawer } from 'antd';
+import { Menu, Button, Drawer, Image } from 'antd';
 import NetsTypeDropdown from '../components/main-header/nets-type-dropdown/NetsTypeDropdown';
 import MoreLinksDropdown from '../components/main-header/more-links-dropdown/MoreLinksDropdown';
 import MobilviewMenu from '../components/mobile-view-menu/MobilviewMenu';
@@ -7,7 +7,7 @@ import { useAccount } from 'wagmi'
 
 function MainHeader({setIsModalOpen}) {
     const { address, isConnected } = useAccount();
-    const items = [
+    const items = process.env.REACT_APP_MAINNET ? [
         {
             label: 'Trade',
             key: 'trade',
@@ -35,6 +35,19 @@ function MainHeader({setIsModalOpen}) {
         {
             label: 'Referral',
             key: 'referral',
+        },
+    ] : [
+        {
+            label: 'Trade',
+            key: 'trade',
+        },
+        {
+            label: 'Liquidity',
+            key: 'liquidity',
+        },
+        {
+            label: 'Stats',
+            key: 'stats',
         },
     ];
     const [open, setOpen] = useState(false);
@@ -75,10 +88,11 @@ function MainHeader({setIsModalOpen}) {
                     </div>
                 </div>
                 <div className='flex self-center w-2/5 justify-end'>
-
-                    <div>
-                        <NetsTypeDropdown />
-                    </div>
+                    {process.env.REACT_APP_MAINNET && <div><NetsTypeDropdown /></div>}
+                    {!process.env.REACT_APP_MAINNET && <div className='flex text-white items-center text-sm px-4'>
+                        <Image src={`/img/polygon.0c049c96.svg`} alt='ploygon logo' />
+                        <div className='ml-2 text-zexText font-medium'>Polygon Mumbai Testnet</div>
+                    </div>}
                     {/* <div className='tp self-center text-sm mr-5 flex'>
                         <img src='https://polygon.mux.network/img/polygon.0c049c96.svg' className='mr-1'></img> Polygon Mumbai Testnet
                     </div> */}

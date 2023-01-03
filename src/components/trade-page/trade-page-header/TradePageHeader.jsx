@@ -7,7 +7,7 @@ function TradePageHeader(props) {
     };
     return (
         <div>
-            <div className='flex items-center py-3 mflex-wrap justify-between'>
+            <div className='flex items-center py-3 mflex-wrap gap-5'>
                 <div className='flex mw-50 mmb-4'>
                     <div className='self-center'>
                         <img className='mr-3 h-8' src='https://mux-world.github.io/assets/img/tokens/MATIC.svg' alt='token'/>
@@ -41,7 +41,7 @@ function TradePageHeader(props) {
                     <div className='tp whitespace-pre-wrap'>Est. 8H Funding (L/S)</div>
                     <div className='text-white'>0.030% / 0.011%</div>
                 </div>
-                <Divider type="vertical" />
+                {process.env.REACT_APP_MAINNET && <><Divider type="vertical" />
                 <div className='text-xs mw-33 mmb-4 mtext-right mp-0'>
                     <div className='tp whitespace-pre-wrap text-right'>Price Source</div>
                     <div className='text-right'>
@@ -68,7 +68,7 @@ function TradePageHeader(props) {
                             ]}
                         />
                     </div>
-                </div>
+                </div></>}
             </div>
         </div>
     );

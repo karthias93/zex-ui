@@ -1,6 +1,7 @@
 import { Button, Card, Col, Divider, Input, InputNumber, Radio, Row, Select, Slider, Tooltip } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAccount } from 'wagmi';
+import { getProviders } from '../../../utils/common';
 
 function TradePageRightBar({setIsModalOpen}) {
     const { isConnected } = useAccount();
@@ -36,13 +37,16 @@ function TradePageRightBar({setIsModalOpen}) {
     const onChange1 = (newValue) => {
         setInputValue(newValue);
     };
+    useEffect(()=>{
+        // console.log(contract, '------c----')
+    }, [])
     return (
         <div className='trade-page-right-bar'>
             <div className='trade-page-right-bar-header p-3'>
                 <div className='flex items-center justify-between'>
 
 
-                    {/* <Button className='zex-btn-sec' size='large'>Isolated</Button> */}
+                    <Button className='zex-btn-sec' size='large'>Isolated</Button>
 
                     <Radio.Group className='cus-radio-group' size="large" onChange={onChange} value={value} defaultValue="1">
                         <Radio.Button value={1}>Buy / Long</Radio.Button>

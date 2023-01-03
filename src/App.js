@@ -1,5 +1,7 @@
 import './App.css';
 import MainLayout from './layout/MainLayout';
+import { store } from "./store";
+import { Provider } from 'react-redux';
 
 import { WagmiConfig, createClient, configureChains } from 'wagmi'
 import { polygonMumbai } from 'wagmi/chains'
@@ -39,9 +41,11 @@ const client = createClient({
 
 function App() {
   return (
-    <WagmiConfig client={client}>
-      <MainLayout/>
-    </WagmiConfig>
+    <Provider store={store}>
+      <WagmiConfig client={client}>
+        <MainLayout/>
+      </WagmiConfig>
+    </Provider>
   );
 }
 
