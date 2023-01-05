@@ -1,23 +1,15 @@
 import { Button, Card, Col, Divider, Input, InputNumber, Radio, Row, Select, Slider, Tooltip } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useAccount } from 'wagmi';
+import { useAccount, useContractRead, useContractWrite, usePrepareContractWrite, usePrepareSendTransaction, useSendTransaction } from 'wagmi';
 import { getProviders } from '../../../utils/common';
+import zexStorageABI from '../../../config/abis/zexStorage.json';
+import { ethers } from 'ethers';
 
 function TradePageRightBar({setIsModalOpen}) {
     const { isConnected } = useAccount();
     const handleChange = (value) => {
         console.log(`selected ${value}`);
     };
-    // const options = [
-    //     {
-    //         label: 'Buy / Long',
-    //         value: 'buy-long',
-    //     },
-    //     {
-    //         label: 'Sell / Short',
-    //         value: 'sell-short',
-    //     },
-    // ];
     const [value, setValue] = useState(1);
     const onChange = (e) => {
         console.log('radio checked', e.target.value);
@@ -40,13 +32,31 @@ function TradePageRightBar({setIsModalOpen}) {
     useEffect(()=>{
         // console.log(contract, '------c----')
     }, [])
+    const { config } = usePrepareContractWrite({
+        address: '0xA187457BAc9a236989c9052ffC7619Cb5A6eE1Ea',
+        abi: zexStorageABI,
+        functionName: 'placePositionOrder2',
+        args: ["0x494239ffe9057d05ad5f8c4a23a58f306bb13e9b010101000000000000000000", 100000000000000, 990000000000000, 0, 0, 128, 8640000, "0x0000000000000000000000000000000000000000000000000000000000000000"],
+        overrides:{
+            gasLimit:1000000,
+            value: ethers.utils.parseEther('0.01'),
+        }
+    })
+    const { data, isLoading, isSuccess, write, error } = useContractWrite(config)
+    console.log(write, '-----w----', error, data, isLoading, isSuccess)
+    const { data: maintainer, isError, isLoading: maintainerLoading } = useContractRead({
+        address: '0xA187457BAc9a236989c9052ffC7619Cb5A6eE1Ea',
+        abi: zexStorageABI,
+        functionName: 'owner',
+    })
+    console.log(maintainer, '----d-----')
     return (
         <div className='trade-page-right-bar'>
             <div className='trade-page-right-bar-header p-3'>
                 <div className='flex items-center justify-between'>
 
 
-                    <Button className='zex-btn-sec' size='large'>Isolated</Button>
+                    <Button className='zex-btn-sec' size='large'disabled={!write} onClick={() => write?.()} >Isolated</Button> {/**/}
 
                     <Radio.Group className='cus-radio-group' size="large" onChange={onChange} value={value} defaultValue="1">
                         <Radio.Button value={1}>Buy / Long</Radio.Button>

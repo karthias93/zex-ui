@@ -8,11 +8,18 @@ import { BrowserRouter } from "react-router-dom";
 import './styles/common.scss';
 import './styles/antd-overwrite.scss';
 import './styles/responsive.scss';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+const client = new ApolloClient({
+  uri: 'https://api.thegraph.com/subgraphs/name/easypunk/mux-plygon-mumbai-testnet',
+  cache: new InMemoryCache(),
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ApolloProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
